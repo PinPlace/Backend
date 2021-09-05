@@ -6,8 +6,12 @@ name = "pypi"
 [packages]
 django = "*"
 django-taggit = "*"
+djangorestframework = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.9"
+
+[scripts]
+dev = "sh -c './manage.py runserver'"
