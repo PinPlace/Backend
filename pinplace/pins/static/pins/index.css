@@ -1,0 +1,16 @@
+body {
+    background: rgb(175, 175, 226);
+    background-image: url(/static/stars.jpg);
+    background-repeat: no-repeat;
+    color: #fff;
+    font-family: ubuntu;
+}
+
+a {
+    color: blueviolet;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+}

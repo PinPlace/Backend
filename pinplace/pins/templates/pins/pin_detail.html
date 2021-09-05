@@ -1,0 +1,14 @@
+{% extends 'pins/base.html' %}
+
+{% block content %}
+<div class="pin-detail">
+    <div class="pin">
+    <h1>{{ pin.name }}</h1>
+    <h2>{{ pin.tags }}</h2>
+    <p>{{ pin.pin }}</p>
+    <p>{{ pin.notes }}</p>
+    <p>{{ pin.date_created }}</p>
+    <a href="#"></a>
+    </div>
+</div>
+{% endblock content %}

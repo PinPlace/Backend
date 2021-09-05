@@ -1,0 +1,27 @@
+{% extends 'pins/base.html' %}
+
+{% block content %}
+    <h1>Your pins</h1> 
+    <div class="pins">
+    {% for pin in pins %}
+        <div class="pin">
+            <h2><a href="{% url 'pins:pin_detail' slug=pin.slug %}">{{pin.name}}</a></h2>
+            <p>{{ pin.snippet }}</p>
+            <p>{{ pin.date_created }}</p>
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock content %}
+
+    <!--{% if pins %}
+
+    {% else %}
+
+    {% endif %}-->
+
+    <!--{% if user.is_authenticated %}
+        <a href={% url 'create-item' %}>
+            <button>Add pin</button>
+        </a>
+    {% endif %}-->
