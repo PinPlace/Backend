@@ -11,10 +11,26 @@
     <link rel="icon" href="{% static 'pinplace_logo.ico' %}">
     <title>PinPlace</title>
     {% block head %}{% endblock %}
+    <nav>
+        <ul>
+            {% if user.is_authenticated %}
+            <li>
+                <form class="logout-link" action="{% url 'users:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+                <li><a href="{% url 'pins:create' %}" class="highlight">New pin</a></li>
+            </li>
+            {% else %}
+                <li><a href="{% url 'users:login' %}">Login</a></li>
+                <li><a href="{% url 'users:register_view' %}">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
 </head>
 <body>
     <!--below brings in our logo and links it to the pins page but has a white background and needs resizing-->
-    <!--<h1><a href="{% url 'pins:pins' %}"><img src="{% static 'pinplace_logo.png' %}" /></a></h1>-->
+    <!--<h1><a href="{% url 'home' %}"><img src="{% static 'pinplace_logo.png' %}" /></a></h1>-->
     {% block content %}
     {% endblock content %}
 </body>

@@ -1,0 +1,14 @@
+{% extends 'pins/base.html' %}
+
+{% block content %}
+    <div class="create-pin">
+        <h2>Create new pin</h2>
+        <form class="site-form" action="{% url 'pins:create' %}" method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Create" />
+        </form>
+    </div>
+{% endblock %}
+
+<!-- at the end of the form declaration add 'enctype="multipart/form-data' for encoding the form data-->

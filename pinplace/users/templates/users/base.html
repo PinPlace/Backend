@@ -6,11 +6,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'pins/index.css' %}">
+    <style> @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');</style>
+    <link rel="stylesheet" href="{% static 'users/index.css' %}">
+    <link rel="icon" href="{% static 'pinplace_logo.ico' %}">
     <title>PinPlace</title>
     {% block head %}{% endblock %}
+    <nav>
+        <ul>
+            {% if user.is_authenticated %}
+            <li>
+                <form class="logout-link" action="{% url 'users:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+            </li>
+            {% else %}
+                <li><a href="{% url 'users:login' %}">Login</a></li>
+                <li><a href="{% url 'users:register_view' %}">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
 </head>
 <body>
+<!--below brings in our logo and links it to the pins page but has a white background and needs resizing-->
+    <!--<h1><a href="{% url 'home' %}"><img src="{% static 'pinplace_logo.png' %}" /></a></h1>-->
     {% block content %}
     {% endblock content %}
 </body>

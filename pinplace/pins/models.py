@@ -1,5 +1,6 @@
 from django.db import models
 from taggit.managers import TaggableManager
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -10,6 +11,11 @@ class Pins(models.Model):
     pin = models.TextField()
     notes = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    # thumb = models.ImageField(default='default.png', blank=True)
+    # will make the logo the default icon
+    # might need to install pillow, check for errors when migrating
+    # the thumb above is for lists
     # author = 
     #slug is url address of the pin
 
