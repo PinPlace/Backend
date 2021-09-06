@@ -7,5 +7,4 @@ urlpatterns = [
     path('', views.pins, name='pins'),
     path('create/', views.pin_create , name='create'),
     path('<slug:slug>/', views.pin_detail, name='pin_detail'),
-    # path('login/', views.login, name='login'),
 ]

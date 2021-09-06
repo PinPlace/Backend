@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pins.apps.PinsConfig',
     'users.apps.UsersConfig',
+    'lists.apps.ListsConfig',
     'taggit',
+    'colorfield',
     'rest_framework',
 ]
 

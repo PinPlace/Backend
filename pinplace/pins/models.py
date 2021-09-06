@@ -27,4 +27,3 @@ class Pins(models.Model):
 
     def snippet(self):
         return self.pin[:50] + '...'
-

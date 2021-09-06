@@ -1,0 +1,16 @@
+{% extends 'lists/base.html' %}
+
+{% block content %}
+
+    <h1>My Lists</h1> 
+    <div class="lists">
+    {% for list in lists %}
+        <div class="list">
+            <h2><a href="{% url 'lists:list_detail' slug=list.slug %}">{{list.name}}</a></h2>
+            <p>{{ list.snippet }}</p>
+            <p>{{ list.date_created }}</p>
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock content %}

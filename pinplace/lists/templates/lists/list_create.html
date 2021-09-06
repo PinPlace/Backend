@@ -1,0 +1,13 @@
+{% extends 'lists/base.html' %}
+
+{% block content %}
+    <div class="create-list">
+        <h2>Create new List</h2>
+        <form class="site-form" action="{% url 'lists:create' %}" method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Create" />
+        </form>
+    </div>
+    <script src="../../static/slugify.js"></script>
+{% endblock content %}

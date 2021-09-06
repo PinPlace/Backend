@@ -1,6 +1,4 @@
-from django.contrib.auth import login
 from django.shortcuts import redirect, render
-from django.http import HttpResponse
 from .models import Pins
 from django.contrib.auth.decorators import login_required
 from . import forms
