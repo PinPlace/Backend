@@ -5,3 +5,4 @@ class CreatePin(forms.ModelForm):
     class Meta:
         model = Pins
         fields = ['name', 'slug', 'pin', 'notes']
+        widgets = {'slug': forms.HiddenInput()}

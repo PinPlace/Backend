@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class Pins(models.Model):
     name = models.CharField(max_length=100, blank=False)
-    slug = models.SlugField()
+    slug = models.SlugField(max_length=100)
     tags = TaggableManager()
     pin = models.TextField()
     notes = models.TextField()

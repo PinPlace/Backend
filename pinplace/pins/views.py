@@ -7,7 +7,6 @@ from . import forms
 
 def pins(request):
     pins = Pins.objects.all().order_by('date_created')
-    # context = { "pins": pins }
     return render(request, 'pins/pins.html', { 'pins': pins })
 
 def pin_detail(request, slug):
