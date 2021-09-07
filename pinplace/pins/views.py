@@ -18,8 +18,9 @@ def pin_create(request):
         if form.is_valid():
             instance = form.save(commit=False)
             instance.author = request.user
+            instance.user_id = request.user
             instance.save()
             return redirect('pins:pins')
     else:
         form = forms.CreatePin()
-        return render(request, 'pins/pin_create.html', { "form": form })
+    return render(request, 'pins/pin_create.html', { "form": form })

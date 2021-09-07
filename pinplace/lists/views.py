@@ -18,6 +18,10 @@ def list_create(request):
         if form.is_valid():
             instance = form.save(commit=False)
             instance.author = request.user
+            instance.user_id = request.user
+            print(request.body)
+            print(request.user)
+            # instance.pins_id = request.user.pins_id
             instance.save()
             return redirect('lists:lists')
     else:

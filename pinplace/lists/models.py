@@ -1,6 +1,9 @@
 from colorfield.fields import ColorField
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.deletion import CASCADE
+# from users.models import Users
+from pins.models import Pins
 
 # Create your models here.
 
@@ -9,8 +12,10 @@ class Lists(models.Model):
     thumb = models.ImageField(default='default.png', blank=True)
     colour = ColorField(default='#FF0000')
     slug = models.SlugField(max_length=100)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    # author = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     date_created = models.DateTimeField(auto_now_add=True)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
+    pins_id = models.ForeignKey(Pins, on_delete=models.CASCADE, blank=True)
 
     class Meta:
         verbose_name_plural = "Lists"

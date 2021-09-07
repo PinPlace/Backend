@@ -1,6 +1,4 @@
 from django.shortcuts import redirect, render
-from django.http import HttpResponse
-from rest_framework import mixins
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 # Create your views here.
@@ -11,7 +9,6 @@ def register_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            #log user in
             return redirect('pins:pins')
     else:
         form = UserCreationForm()
