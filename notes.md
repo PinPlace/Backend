@@ -7,3 +7,10 @@ changed media from icons to media in settings, works with icons not with media. 
 Do we want to remove pin id from the List model?
 When we click on a list its originally blank, have an add pins button there?
 Then when we click on the details page we have an add pins button that pulls in the pin ids to be selected from?
+
+Once you create a list, redirects to that list
+
+remove the default for the thumb
+
+add in field to get pins
+handle posting pin to list

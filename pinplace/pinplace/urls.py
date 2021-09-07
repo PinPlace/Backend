@@ -20,34 +20,35 @@ from pins import views
 from rest_framework import routers, serializers, viewsets, permissions
 
 # Serializers define the API representation.
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ['url', 'username', 'email', 'is_staff']
+# class UserSerializer(serializers.HyperlinkedModelSerializer):
+#     class Meta:
+#         model = User
+#         fields = ['url', 'username', 'email', 'is_staff']
 
 # ViewSets define the view behavior.
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
+# class UserViewSet(viewsets.ModelViewSet):
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
+#     permission_classes = [permissions.IsAuthenticated]
 
 # Routers provide an easy way of automatically determining the URL conf.
-router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
+# router = routers.DefaultRouter()
+# router.register(r'users', UserViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('pins/', include('pins.urls')),
-    path('users/', include('users.urls')),
-    path('lists/', include('lists.urls')),
-    path('', views.pins, name='home'),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('', include(router.urls)),
-    path("pinplace_logo.ico", RedirectView.as_view(url=staticfiles_storage.url("pinplace_logo.ico")))
+    path('', include('pins.urls'))
+    # path('admin/', admin.site.urls),
+    # path('pins/', include('pins.urls')),
+    # path('users/', include('users.urls')),
+    # path('lists/', include('lists.urls')),
+    # path('', views.pins, name='home'),
+    # path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    # path('', include(router.urls)),
+    # path("pinplace_logo.ico", RedirectView.as_view(url=staticfiles_storage.url("pinplace_logo.ico")))
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
